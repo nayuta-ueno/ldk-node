@@ -4,8 +4,13 @@ TARGET_DIR="target"
 PROJECT_DIR="ldk-node-android"
 PACKAGE_DIR="org/lightningdevkit/ldknode"
 UNIFFI_BINDGEN_BIN="cargo run --features=uniffi/cli --bin uniffi-bindgen"
-ANDROID_NDK_ROOT="/opt/homebrew/share/android-ndk"
-LLVM_ARCH_PATH="darwin-x86_64"
+if [ `uname` = "Darwin" ]; then
+    ANDROID_NDK_ROOT="/opt/homebrew/share/android-ndk"
+    LLVM_ARCH_PATH="darwin-x86_64"
+else
+    ANDROID_NDK_ROOT="$ANDROID_HOME/ndk/25.2.9519653"
+    LLVM_ARCH_PATH="linux-x86_64"
+fi
 PATH="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/$LLVM_ARCH_PATH/bin:$PATH"
 
 rustup target add x86_64-linux-android aarch64-linux-android armv7-linux-androideabi

@@ -10,3 +10,7 @@ module_name = "LDKNode"
 ffi_module_name = "LDKNodeFFI"
 ffi_module_filename ="LDKNodeFFI"
 cdylib_name = "ldk_node"
+
+[bindings.go]
+module_name = "LDKNode"
+cdylib_name = "ldk_node"
