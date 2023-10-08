@@ -3,6 +3,8 @@ BINDINGS_DIR="bindings/golang/ldk_node"
 TARGET_DIR="target/bindings/golang"
 PROJECT_DIR="ldk-node-golang"
 
+cargo install uniffi-bindgen-go --git https://github.com/NordSecurity/uniffi-bindgen-go
+
 DYNAMIC_LIB_PATH="target/x86_64-unknown-linux-gnu/release/libldk_node.so"
 
 mkdir -p $BINDINGS_DIR || exit 1
